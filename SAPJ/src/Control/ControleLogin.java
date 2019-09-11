@@ -34,7 +34,12 @@ public class ControleLogin {
             ArrayList<Advogado> advogados = new BancoAdvogados().listarAdvogados();
             for (Advogado advogado : advogados) {
                 if (login.equals(advogado.getLogin()) && senha.equals(advogado.getSenha())) {
-                    permisao = true;
+                    if (advogado.isDesativado()) {
+                        JOptionPane.showMessageDialog(null, "Advogado desativo");
+                        return;
+                    } else {
+                        permisao = true;
+                    }
                 }
             }
             if (permisao == true) {

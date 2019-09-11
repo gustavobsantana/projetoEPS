@@ -10,10 +10,12 @@ package Model;
  * @author Gustavo Santana
  */
 public class Advogado extends Usuario {
-      private String nome;
+
+    private String nome;
     private String email;
     private String cpf;
     private int numeroOAB;
+    private boolean desativado = false;
 
     public String getNome() {
         return nome;
@@ -62,7 +64,15 @@ public class Advogado extends Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public boolean isDesativado() {
+        return desativado;
+    }
+
+    public void setDesativado(boolean desativado) {
+        this.desativado = desativado;
+    }
     
     
-    
+
 }

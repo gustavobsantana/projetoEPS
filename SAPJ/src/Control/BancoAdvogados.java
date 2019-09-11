@@ -35,6 +35,7 @@ public class BancoAdvogados {
             advogado.setNumeroOAB(((Advogado)lista).getNumeroOAB());
             advogado.setLogin(((Advogado)lista).getLogin());
             advogado.setSenha(((Advogado)lista).getSenha());
+            advogado.setDesativado(((Advogado)lista).isDesativado());
             listaAdvogados.add(advogado);
         }
 
