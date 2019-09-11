@@ -5,7 +5,11 @@
  */
 package Control;
 
+import Model.Admin;
+import Model.Advogado;
 import View.Login;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,11 +25,23 @@ public class ControleLogin {
     }
 
     public void login(String login, String senha) {
-        System.out.println(login);
-        System.out.println(senha);
-        
-        new ControleCadastroAdvogado().iniciarCadastroAdvogados();
-        view.dispose();
+        Admin admin = new Admin();
+        if (admin.getLogin().equals(login) && admin.getSenha().equals(senha)) {
+            new ControleCadastroAdvogado().iniciarCadastroAdvogados();
+            view.dispose();
+        } else {
+            Boolean permisao = false;
+            ArrayList<Advogado> advogados = new BancoAdvogados().listarAdvogados();
+            for (Advogado advogado : advogados) {
+                if (login.equals(advogado.getLogin()) && senha.equals(advogado.getSenha())) {
+                    permisao = true;
+                }
+            }
+            if (permisao == true) {
+                JOptionPane.showMessageDialog(null, "OK");
+            } else {
+                JOptionPane.showMessageDialog(null, "ERRO AO ACESSAR SISTEMA! \n Confira USUARIO e SENHA");
+            }
+        }
     }
-
 }

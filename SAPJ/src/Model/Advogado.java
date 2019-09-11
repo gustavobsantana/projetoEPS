@@ -5,17 +5,15 @@
  */
 package Model;
 
-import java.io.Serializable;
-
 /**
  *
  * @author Gustavo Santana
  */
-public class Advogado extends Usuario implements Serializable {
-    String nome;
-    String email;
-    String cpf;
-    int numeroOAB;
+public class Advogado extends Usuario {
+      private String nome;
+    private String email;
+    private String cpf;
+    private int numeroOAB;
 
     public String getNome() {
         return nome;
