@@ -35,7 +35,9 @@ public class ControleListaDeProcessos {
                 _processo.getNumero(),
                 _processo.getCliente(),
                 _processo.getVara(),
-                _processo.getAdvogado().getNome()});
+                _processo.getAdvogado().getNome(),
+                _processo.getStatus()
+            });
         });
 
         tabelaProcessos.addMouseListener(new MouseAdapter() {
@@ -57,7 +59,16 @@ public class ControleListaDeProcessos {
 
     //tela de visualizar
     public void visualizar() {
-
+        if (rowSelect > -1) {
+            int numero = (int) tabelaProcessos.getModel().getValueAt(rowSelect, 0);
+            new BancoProcessos().listarProcessos().forEach(_processo -> {
+                if (numero == _processo.getNumero()) {
+                    new ControleVisualizarInformacoesDoProcesso().iniciarVisualizarMovimentacao(_processo);
+                }
+            });
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione um processo");
+        }
     }
 
     //tela de finalizar

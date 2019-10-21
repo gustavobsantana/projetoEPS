@@ -64,11 +64,11 @@ public class ListaDeProcessos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codigo", "Cliente", "Vara", "Advogado"
+                "Codigo", "Cliente", "Vara", "Advogado", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

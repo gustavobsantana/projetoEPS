@@ -5,16 +5,22 @@
  */
 package View;
 
+import Control.ControleFinalizarProcesso;
+import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
+
 /**
  *
  * @author Gustavo Santana
  */
 public class FinalizarProcesso extends javax.swing.JFrame {
 
+    ControleFinalizarProcesso controller;
     /**
      * Creates new form FinalizarProcesso
      */
-    public FinalizarProcesso() {
+    public FinalizarProcesso(ControleFinalizarProcesso controller) {
+        this.controller = controller;
         initComponents();
     }
 
@@ -33,13 +39,13 @@ public class FinalizarProcesso extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtInformacao = new javax.swing.JTextArea();
         radioConcluso = new javax.swing.JRadioButton();
         radioCancelado = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
+        btnConcluir = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -48,9 +54,9 @@ public class FinalizarProcesso extends javax.swing.JFrame {
 
         jLabel2.setText("Processos / Finalizar:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtInformacao.setColumns(20);
+        txtInformacao.setRows(5);
+        jScrollPane1.setViewportView(txtInformacao);
 
         radioConcluso.setText("Concluso");
         radioConcluso.addActionListener(new java.awt.event.ActionListener() {
@@ -95,11 +101,26 @@ public class FinalizarProcesso extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setText("Voltar");
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Concluir");
+        btnConcluir.setText("Concluir");
+        btnConcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConcluirActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Cancelar");
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -117,13 +138,13 @@ public class FinalizarProcesso extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(112, 112, 112)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnConcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(122, 122, 122))
         );
         jPanel1Layout.setVerticalGroup(
@@ -132,7 +153,7 @@ public class FinalizarProcesso extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1))
+                    .addComponent(btnVoltar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -140,10 +161,10 @@ public class FinalizarProcesso extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                        .addComponent(btnConcluir, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -170,6 +191,19 @@ public class FinalizarProcesso extends javax.swing.JFrame {
     private void radioConclusoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioConclusoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radioConclusoActionPerformed
+
+    private void btnConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConcluirActionPerformed
+        controller.concluir(txtInformacao.getText());
+    }//GEN-LAST:event_btnConcluirActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        controller.voltar();
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        txtInformacao.setText("");
+        getButtonGroup().clearSelection();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,19 +240,66 @@ public class FinalizarProcesso extends javax.swing.JFrame {
 //        });
 //    }
 
+    public ButtonGroup getButtonGroup() {
+        return buttonGroup1;
+    }
+
+    public JRadioButton getRadioCancelado() {
+        return radioCancelado;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(FinalizarProcesso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(FinalizarProcesso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(FinalizarProcesso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(FinalizarProcesso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new FinalizarProcesso().setVisible(true);
+//            }
+//        });
+//    }
+    public JRadioButton getRadioConcluso() {
+        return radioConcluso;
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnConcluir;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JRadioButton radioCancelado;
     private javax.swing.JRadioButton radioConcluso;
+    private javax.swing.JTextArea txtInformacao;
     // End of variables declaration//GEN-END:variables
 }

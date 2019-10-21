@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Enums.StatusProcesso;
 import Enums.TipoProcesso;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -25,6 +26,8 @@ public class Processo implements Serializable{
     private String nomeDaParte; //-----
     private String vara;
     private ArrayList<Movimentacao> movimentacoes; //----
+    private StatusProcesso status = StatusProcesso.ABERTO;
+    private String comentarioEncerramento;
 
     public int getNumero() {
         return numero;
@@ -105,5 +108,25 @@ public class Processo implements Serializable{
     public void setMovimentacoes(ArrayList<Movimentacao> movimentacoes) {
         this.movimentacoes = movimentacoes;
     }
+
+    public StatusProcesso getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusProcesso status) {
+        this.status = status;
+    }
+
+    public String getComentarioEncerramento() {
+        return comentarioEncerramento;
+    }
+
+    public void setComentarioEncerramento(String comentarioEncerramento) {
+        this.comentarioEncerramento = comentarioEncerramento;
+    }
+    
+    
+    
+    
     
 }

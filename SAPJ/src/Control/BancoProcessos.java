@@ -39,13 +39,15 @@ public class BancoProcessos {
             processo.setNomeDaParte(((Processo)lista).getNomeDaParte());
             processo.setVara(((Processo)lista).getVara());
             processo.setMovimentacoes(((Processo)lista).getMovimentacoes());
+            processo.setStatus(((Processo)lista).getStatus());
+            processo.setComentarioEncerramento(((Processo)lista).getComentarioEncerramento());
             listaProcessos.add(processo);
         }
 
         return listaProcessos;
     }
     
-    public void editarAdvogado(ArrayList<Processo> _processo){
+    public void editarProcesso(ArrayList<Processo> _processo){
         processos = Empacotamento.lerArquivoBinario(NOMEARQUIVO);
         processos.clear();
         processos.addAll(_processo);
