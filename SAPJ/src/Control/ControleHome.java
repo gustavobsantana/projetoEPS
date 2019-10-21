@@ -22,11 +22,16 @@ public class ControleHome {
 
         this.view = new Home(this);
         
+        this.advogadoLogado = advogado;
         
         this.view.setVisible(true);
     }
    
     public void clientes(){
         new ControleListaDeClientes().iniciarCliente();
+    }
+    
+    public void processos(){
+        new ControleListaDeProcessos().iniciaListaDeProcessos(advogadoLogado);
     }
 }

@@ -5,16 +5,22 @@
  */
 package Control;
 
+import Model.Processo;
+import View.FinalizarProcesso;
+
 /**
  *
  * @author Gustavo Santana
  */
 public class ControleFinalizarProcesso {
-    
-    
+
+    Processo processo;
     FinalizarProcesso view;
-    
-    public void iniciarFinalizarProcesso(){
+
+    public void iniciarFinalizarProcesso(Processo processo) {
+        this.processo = processo;
+        this.view = new FinalizarProcesso();
         
+        view.setVisible(true);
     }
 }

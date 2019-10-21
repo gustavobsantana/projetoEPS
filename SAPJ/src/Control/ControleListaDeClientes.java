@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Gustavo Santana
  */
 public class ControleListaDeClientes {
-    
+
     ListaDeCliente view;
     JTable tabelaClientes;
     int rowSelect = -1;
@@ -27,7 +27,7 @@ public class ControleListaDeClientes {
     //inicia a view
     public void iniciarCliente() {
         this.view = new ListaDeCliente(this);
-        
+
         tabelaClientes = view.getTabelClientes();
         iniciarListaClientes();
         tabelaClientes.addMouseListener(new MouseAdapter() {
@@ -52,13 +52,13 @@ public class ControleListaDeClientes {
                 cliente.getTelefone(),
                 cliente.isDesabilitado(),});
         });
-        
+
     }
 
     //abre a tela para cadstro de cliente
     public void adicionarCliente() {
         new ControleCadastroDeClientes().iniciaCadastroClientes();
-        
+
     }
 
     //desabilita um cliente
@@ -75,11 +75,14 @@ public class ControleListaDeClientes {
             JOptionPane.showMessageDialog(null, "Cliente Atualizado");
             view.dispose();
             iniciarCliente();
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione um cliente");
+
         }
     }
-    
-    public void voltar(){
+
+    public void voltar() {
         view.dispose();
     }
-    
+
 }

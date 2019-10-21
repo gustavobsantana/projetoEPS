@@ -18,13 +18,13 @@ public class Processo implements Serializable{
     private int numero;
     private Cliente cliente;
     private Advogado advogado;
-    private String descricao;
+    private String descricao; //-----
     private TipoProcesso tipo;
-    private ArrayList<Evento> eventos;
-    private boolean clienteEhReu;
-    private String nomeDaParte;
+    private ArrayList<Evento> eventos; //----
+    private boolean clienteEhReu; 
+    private String nomeDaParte; //-----
     private String vara;
-    private ArrayList<Movimentacao> movimentacoes;
+    private ArrayList<Movimentacao> movimentacoes; //----
 
     public int getNumero() {
         return numero;

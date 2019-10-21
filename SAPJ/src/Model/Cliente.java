@@ -67,6 +67,13 @@ public class Cliente  implements Serializable {
     public void setDesabilitado(boolean desabilitado) {
         this.desabilitado = desabilitado;
     }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
+    
+    
     
     
     
