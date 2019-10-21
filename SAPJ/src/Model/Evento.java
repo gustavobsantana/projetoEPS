@@ -5,13 +5,14 @@
  */
 package Model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author Gustavo Santana
  */
-public class Evento {
+public class Evento implements Serializable {
     
     private Date data;
     private String descricao;

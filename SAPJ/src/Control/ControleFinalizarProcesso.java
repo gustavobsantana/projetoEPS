@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
-
-import java.io.Serializable;
-import java.util.Date;
+package Control;
 
 /**
  *
  * @author Gustavo Santana
  */
-public class Movimentacao implements Serializable {
-     
-    private Date data;
-    private String descricao;
-    private Advogado advogadoResponsavel;
+public class ControleFinalizarProcesso {
+    
+    
+    FinalizarProcesso view;
+    
+    public void iniciarFinalizarProcesso(){
+        
+    }
 }

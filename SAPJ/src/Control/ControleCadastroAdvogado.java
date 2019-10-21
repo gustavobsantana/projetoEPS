@@ -48,6 +48,11 @@ public class ControleCadastroAdvogado {
         this.view.setVisible(true);
         listarAdvogados();
     }
+    
+    public void visualizarNumeroDeProcessos(){
+        new ControleListaDeProcessosADM().iniciarListaDeProcessos();
+        
+    }
 
     public void cadastrarAdvogado(String nome, String oab, String cpf, String email, String login, String senha) {
         cadastrar = true;

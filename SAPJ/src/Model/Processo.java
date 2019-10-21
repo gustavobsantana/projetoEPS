@@ -6,13 +6,14 @@
 package Model;
 
 import Enums.TipoProcesso;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Gustavo Santana
  */
-public class Processo {
+public class Processo implements Serializable{
     
     private int numero;
     private Cliente cliente;

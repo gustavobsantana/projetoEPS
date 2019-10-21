@@ -62,6 +62,10 @@ ControleCadastroAdvogado controle;
         btCadastrar = new javax.swing.JButton();
         btAtualizarAdvogado = new javax.swing.JButton();
         btDesativar = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        menuItemVisualizarNumProcessos = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -307,6 +311,23 @@ ControleCadastroAdvogado controle;
                 .addContainerGap())
         );
 
+        jMenu1.setText("File");
+
+        menuItemVisualizarNumProcessos.setText("Visualizar Numero de Processos");
+        menuItemVisualizarNumProcessos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemVisualizarNumProcessosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuItemVisualizarNumProcessos);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -346,6 +367,10 @@ ControleCadastroAdvogado controle;
     private void btDesativarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDesativarActionPerformed
         controle.desativarAdvogado(txtCPF.getText());
     }//GEN-LAST:event_btDesativarActionPerformed
+
+    private void menuItemVisualizarNumProcessosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemVisualizarNumProcessosActionPerformed
+        controle.visualizarNumeroDeProcessos();
+    }//GEN-LAST:event_menuItemVisualizarNumProcessosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -428,6 +453,9 @@ ControleCadastroAdvogado controle;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -438,6 +466,7 @@ ControleCadastroAdvogado controle;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> listAdvogados;
     private javax.swing.JList<String> listaAdvogadosDesativados;
+    private javax.swing.JMenuItem menuItemVisualizarNumProcessos;
     private javax.swing.JTextField txtCPF;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtLogin;
