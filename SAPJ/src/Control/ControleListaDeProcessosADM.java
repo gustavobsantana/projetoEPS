@@ -36,6 +36,7 @@ public class ControleListaDeProcessosADM {
 
     //volta para o menu de administrador
     public void voltar() {
+        view.dispose();
     }
 
     //insere os elementos na lista

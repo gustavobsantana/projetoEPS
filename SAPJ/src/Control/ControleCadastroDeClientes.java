@@ -5,40 +5,71 @@
  */
 package Control;
 
+import Model.Cliente;
 import View.CadastroDeCliente;
 import View.ListaDeCliente;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Gustavo Santana
  */
 public class ControleCadastroDeClientes {
-    
-    CadastroDeCliente view;
-    
-    
-    
-    public void iniciaCadastroClientes(){
-        
-        this.view = new CadastroDeCliente(this);
-        
-        view.setVisible(true);
-        
-    }
-    
 
-    
+    CadastroDeCliente view;
+    boolean cadastrar;
+
+    public void iniciaCadastroClientes() {
+
+        this.view = new CadastroDeCliente(this);
+
+        view.setVisible(true);
+
+    }
+
     //cadastra o cliente
-    public void cadastrar(){
+    public void cadastrar(String nome,
+            String cpfOuCNPJ, String email,
+            String endereco, String telefone) {
+
+        cadastrar = true;
+        if (nome.equals("")) {
+            JOptionPane.showMessageDialog(null, "Nome obrigatório");
+        } else if (cpfOuCNPJ.equals("")) {
+            JOptionPane.showMessageDialog(null, "CPF ou CNPJ obrigatório");
+        } else if (endereco.equals("")) {
+            JOptionPane.showMessageDialog(null, "Endereço obrigatório");
+        } else if (telefone.equals("") || !telefone.matches("[0-9]+")) {
+            JOptionPane.showMessageDialog(null, "Telefone obrigatório e somente numeros");
+        } else {
+            ArrayList<Cliente> clientes = new BancoClientes().listarClientes();
+            clientes.forEach(cliente -> {
+                if (cliente.getCpfCnpj().equals(cpfOuCNPJ)) {
+                    JOptionPane.showMessageDialog(null, "CPF ou CNPJ Já cadastrado");
+                    cadastrar = false;
+                }
+            });
+            if (cadastrar) {
+                Cliente cliente = new Cliente();
+                cliente.setNome(nome);
+                cliente.setCpfCnpj(cpfOuCNPJ);
+                cliente.setEmail(email);
+                cliente.setEndereco(endereco);
+                cliente.setTelefone(Integer.parseInt(telefone));
+                new BancoClientes().adicionarCliente(cliente);
+                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
+            }
+        }
     }
-    
+
     //limpa os campos
-    public void cancelar(){
-        
+    public void cancelar() {
+
     }
-    
+
     //fecha a tela e volta pra lista de clientes
-    public void voltar(){
-        
+    public void voltar() {
+        view.dispose();
     }
 }

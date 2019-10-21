@@ -26,6 +26,7 @@ public class ControleLogin {
 
     public void login(String login, String senha) {
         Admin admin = new Admin();
+        Advogado advogadoLogado = new Advogado();
         if (admin.getLogin().equals(login) && admin.getSenha().equals(senha)) {
             new ControleCadastroAdvogado().iniciarCadastroAdvogados();
             view.dispose();
@@ -38,12 +39,14 @@ public class ControleLogin {
                         JOptionPane.showMessageDialog(null, "Advogado desativo");
                         return;
                     } else {
+                        advogadoLogado = advogado;
                         permisao = true;
                     }
                 }
             }
             if (permisao == true) {
-                JOptionPane.showMessageDialog(null, "OK");
+                this.view.dispose();
+                new ControleHome().iniciarHome(advogadoLogado);
             } else {
                 JOptionPane.showMessageDialog(null, "ERRO AO ACESSAR SISTEMA! \n Confira USUARIO e SENHA");
             }

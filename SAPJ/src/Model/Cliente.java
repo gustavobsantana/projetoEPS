@@ -18,6 +18,7 @@ public class Cliente  implements Serializable {
     private String cpfCnpj;
     private int telefone;
     private String endereco;
+    private boolean desabilitado = false;
 
     public String getNome() {
         return nome;
@@ -58,6 +59,15 @@ public class Cliente  implements Serializable {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+
+    public boolean isDesabilitado() {
+        return desabilitado;
+    }
+
+    public void setDesabilitado(boolean desabilitado) {
+        this.desabilitado = desabilitado;
+    }
+    
     
     
 }
