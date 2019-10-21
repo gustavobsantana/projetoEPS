@@ -30,8 +30,8 @@ public class ControleFinalizarProcesso {
     }
 
     public void concluir(String informacao) {
-        if (this.view.getButtonGroup().getSelection() != null && !informacao.equals("")) {
-            if (this.view.getRadioConcluso().isSelected()) {
+        if (this.view.getButtonGroup().getSelection() != null) {
+            if (this.view.getRadioConcluso().isSelected() && informacao.length()>5 ) {
                 ArrayList<Processo> processos = new BancoProcessos().listarProcessos();
                 processos.forEach(_processo -> {
                     if (processo.getNumero() == _processo.getNumero()) {
@@ -40,7 +40,11 @@ public class ControleFinalizarProcesso {
                     }
                 });
                 new BancoProcessos().editarProcesso(processos);
-            } else {
+                this.view.dispose();
+            JOptionPane.showMessageDialog(null, "Status alterado com sucesso");
+            } else if (this.view.getRadioConcluso().isSelected() && informacao.length() < 5 ){
+            JOptionPane.showMessageDialog(null, "Advogado deve adicionar veredito");
+            }else {
                 ArrayList<Processo> processos = new BancoProcessos().listarProcessos();
                 processos.forEach(_processo -> {
                     if (processo.getNumero() == _processo.getNumero()) {
@@ -49,12 +53,13 @@ public class ControleFinalizarProcesso {
                     }
                 });
                 new BancoProcessos().editarProcesso(processos);
+                this.view.dispose();
+            JOptionPane.showMessageDialog(null, "Status alterado com sucesso");
             }
             
-            this.view.dispose();
-            JOptionPane.showMessageDialog(null, "Status alterado com sucesso");
+            
         } else {
-            JOptionPane.showMessageDialog(null, "As informações para o encerramento são obrigatórias");
+            JOptionPane.showMessageDialog(null, "Selecione CONCLUSO ou CANCELADO");
         }
     }
     

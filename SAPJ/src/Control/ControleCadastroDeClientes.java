@@ -59,6 +59,7 @@ public class ControleCadastroDeClientes {
                 cliente.setTelefone(Integer.parseInt(telefone));
                 new BancoClientes().adicionarCliente(cliente);
                 JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
+                this.voltar();
             }
         }
     }

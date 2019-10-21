@@ -187,4 +187,11 @@ public class ControleCadastroAdvogado {
 
         listarAdvogados();
     }
+    
+    public void voltar(){
+        this.view.setVisible(false);
+        ControleLogin ctrl = new ControleLogin();
+        ctrl.iniciarLogin();
+        
+    }
 }

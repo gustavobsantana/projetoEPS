@@ -6,6 +6,7 @@
 package Control;
 
 import Model.Processo;
+import View.ListaDeProcessos;
 import View.VisualizarInformacoesDoProcesso;
 
 /**
@@ -37,5 +38,4 @@ public class ControleVisualizarInformacoesDoProcesso {
         this.view.getTxtVara().setText(processo.getVara());
         this.view.getTxtCliente().setText(processo.getCliente().getNome());
     }
-    
 }
