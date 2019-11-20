@@ -204,50 +204,11 @@ public class ControleCadastroAdvogado {
     }
 
     public void exportar(){
-        File folder = new File(".");
-        System.out.println(folder.getAbsolutePath());
-        List<File> filesPath = new ArrayList<>();
-        for (final File f : folder.listFiles()) {
-            if (f.isFile()) {
-                if (f.getName().matches(".*\\.dat")) {
-                    filesPath.add(f);
-                }
-            }
-        }
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        int result = fileChooser.showOpenDialog(view);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = fileChooser.getSelectedFile();
-            for (File f : filesPath) {
-                File dest = new File(selectedFile.getAbsolutePath() + "\\" + f.getName());
-                try {
-                    Files.copy(f.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                } catch (IOException ex) {
-                    Logger.getLogger(ControleCadastroAdvogado.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
-        }
+        new ControleBackUp().exportar(this.view);
     }
 
     public void importar() {
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        fileChooser.setMultiSelectionEnabled(true);
-        int result = fileChooser.showOpenDialog(view);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File[] selectedFile = fileChooser.getSelectedFiles();
-            for (File f : selectedFile) {
-                File dest = new File(".\\"+f.getName());
-                try {
-                    Files.copy(f.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                } catch (IOException ex) {
-                    Logger.getLogger(ControleCadastroAdvogado.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }
+        new ControleBackUp().importar(this.view);
+        listarAdvogados();
     }
 }
