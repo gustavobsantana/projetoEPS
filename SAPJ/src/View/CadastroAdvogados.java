@@ -9,6 +9,9 @@ import Control.ControleCadastroAdvogado;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JList;
 import javax.swing.JTextField;
@@ -18,7 +21,9 @@ import javax.swing.JTextField;
  * @author Gustavo Santana
  */
 public class CadastroAdvogados extends javax.swing.JFrame {
-ControleCadastroAdvogado controle;
+
+    ControleCadastroAdvogado controle;
+
     /**
      * Creates new form ListaAdvogados
      */
@@ -66,6 +71,9 @@ ControleCadastroAdvogado controle;
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuItemVisualizarNumProcessos = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        menuItemExport = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,9 +135,8 @@ ControleCadastroAdvogado controle;
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -333,6 +340,26 @@ ControleCadastroAdvogado controle;
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setText("Backup");
+
+        jMenuItem1.setText("Import");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
+        menuItemExport.setText("Export");
+        menuItemExport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemExportActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuItemExport);
+
+        jMenuBar1.add(jMenu2);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -364,11 +391,11 @@ ControleCadastroAdvogado controle;
     }//GEN-LAST:event_txtOABActionPerformed
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-       controle.cadastrarAdvogado(txtNome.getText(), txtOAB.getText(), txtCPF.getText(),txtEmail.getText(), txtLogin.getText(), txtSenha.getText());
+        controle.cadastrarAdvogado(txtNome.getText(), txtOAB.getText(), txtCPF.getText(), txtEmail.getText(), txtLogin.getText(), txtSenha.getText());
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void btAtualizarAdvogadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizarAdvogadoActionPerformed
-       controle.atualizarAdvogado(txtNome.getText(), txtOAB.getText(), txtCPF.getText(),txtEmail.getText(), txtLogin.getText(), txtSenha.getText());
+        controle.atualizarAdvogado(txtNome.getText(), txtOAB.getText(), txtCPF.getText(), txtEmail.getText(), txtLogin.getText(), txtSenha.getText());
     }//GEN-LAST:event_btAtualizarAdvogadoActionPerformed
 
     private void btDesativarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDesativarActionPerformed
@@ -376,12 +403,20 @@ ControleCadastroAdvogado controle;
     }//GEN-LAST:event_btDesativarActionPerformed
 
     private void menuItemVisualizarNumProcessosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemVisualizarNumProcessosActionPerformed
-       controle.voltar();
+        controle.voltar();
     }//GEN-LAST:event_menuItemVisualizarNumProcessosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         controle.visualizarNumeroDeProcessos();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void menuItemExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemExportActionPerformed
+        controle.exportar();
+    }//GEN-LAST:event_menuItemExportActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        controle.importar();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -418,12 +453,11 @@ ControleCadastroAdvogado controle;
 //            }
 //        });
 //    }
-
-    public JList getLista(){
+    public JList getLista() {
         return listAdvogados;
     }
-    
-    public JList getListaDesativados(){
+
+    public JList getListaDesativados() {
         return listaAdvogadosDesativados;
     }
 
@@ -450,9 +484,8 @@ ControleCadastroAdvogado controle;
     public JTextField getTxtSenha() {
         return txtSenha;
     }
-    
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAtualizarAdvogado;
     private javax.swing.JButton btCadastrar;
@@ -466,7 +499,9 @@ ControleCadastroAdvogado controle;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -477,6 +512,7 @@ ControleCadastroAdvogado controle;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> listAdvogados;
     private javax.swing.JList<String> listaAdvogadosDesativados;
+    private javax.swing.JMenuItem menuItemExport;
     private javax.swing.JMenuItem menuItemVisualizarNumProcessos;
     private javax.swing.JTextField txtCPF;
     private javax.swing.JTextField txtEmail;

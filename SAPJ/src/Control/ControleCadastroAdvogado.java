@@ -10,8 +10,16 @@ import View.CadastroAdvogados;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JFileChooser;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.prompt.PromptSupport;
@@ -48,10 +56,10 @@ public class ControleCadastroAdvogado {
         this.view.setVisible(true);
         listarAdvogados();
     }
-    
-    public void visualizarNumeroDeProcessos(){
+
+    public void visualizarNumeroDeProcessos() {
         new ControleListaDeProcessosADM().iniciarListaDeProcessos();
-        
+
     }
 
     public void cadastrarAdvogado(String nome, String oab, String cpf, String email, String login, String senha) {
@@ -187,11 +195,59 @@ public class ControleCadastroAdvogado {
 
         listarAdvogados();
     }
-    
-    public void voltar(){
+
+    public void voltar() {
         this.view.setVisible(false);
         ControleLogin ctrl = new ControleLogin();
         ctrl.iniciarLogin();
-        
+
+    }
+
+    public void exportar(){
+        File folder = new File(".");
+        System.out.println(folder.getAbsolutePath());
+        List<File> filesPath = new ArrayList<>();
+        for (final File f : folder.listFiles()) {
+            if (f.isFile()) {
+                if (f.getName().matches(".*\\.dat")) {
+                    filesPath.add(f);
+                }
+            }
+        }
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int result = fileChooser.showOpenDialog(view);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            for (File f : filesPath) {
+                File dest = new File(selectedFile.getAbsolutePath() + "\\" + f.getName());
+                try {
+                    Files.copy(f.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                } catch (IOException ex) {
+                    Logger.getLogger(ControleCadastroAdvogado.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+        }
+    }
+
+    public void importar() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.setMultiSelectionEnabled(true);
+        int result = fileChooser.showOpenDialog(view);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File[] selectedFile = fileChooser.getSelectedFiles();
+            for (File f : selectedFile) {
+                File dest = new File(".\\"+f.getName());
+                try {
+                    Files.copy(f.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                } catch (IOException ex) {
+                    Logger.getLogger(ControleCadastroAdvogado.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }
 }

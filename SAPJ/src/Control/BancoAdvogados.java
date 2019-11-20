@@ -48,4 +48,5 @@ public class BancoAdvogados {
         advogados.addAll(_advogados);
         Empacotamento.gravarArquivoBinario(advogados, NOMEARQUIVO);
     }
+    
 }
