@@ -6,6 +6,7 @@
 package View;
 
 import Control.ControleListaDeProcessos;
+import javax.swing.JButton;
 import javax.swing.JTable;
 
 /**
@@ -247,6 +248,15 @@ public class ListaDeProcessos extends javax.swing.JFrame {
     public JTable getTableProcessos() {
         return tableProcessos;
     }
+
+    public JButton getBtnAdicionar() {
+        return btnAdicionar;
+    }
+
+    public JButton getBtnFinalizar() {
+        return btnFinalizar;
+    }
+    
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -211,4 +211,8 @@ public class ControleCadastroAdvogado {
         new ControleBackUp().importar(this.view);
         listarAdvogados();
     }
+    
+    public void consultarProcessos(){
+        new ControleListaDeProcessos().iniciaListaDeProcessosADM();
+    }
 }

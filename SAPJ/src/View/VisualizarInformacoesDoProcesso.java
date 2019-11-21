@@ -6,6 +6,7 @@
 package View;
 
 import Control.ControleVisualizarInformacoesDoProcesso;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -56,8 +57,8 @@ public class VisualizarInformacoesDoProcesso extends javax.swing.JFrame {
         jDayChooser1 = new com.toedter.calendar.JDayChooser();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAddEvento = new javax.swing.JButton();
+        btnAddMovimentacao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -130,14 +131,14 @@ public class VisualizarInformacoesDoProcesso extends javax.swing.JFrame {
         jTextPane1.setText("Próximas atividades:\n\n* 15/09/2019 - 11h00:\nAutenticar processo no forúm de Florianópolis");
         jScrollPane2.setViewportView(jTextPane1);
 
-        jButton1.setText("Adicionar Evento");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddEvento.setText("Adicionar Evento");
+        btnAddEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddEventoActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Adicionar Movimentação");
+        btnAddMovimentacao.setText("Adicionar Movimentação");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -154,17 +155,17 @@ public class VisualizarInformacoesDoProcesso extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnAddEvento, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                    .addComponent(btnAddMovimentacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2)
+                .addComponent(btnAddMovimentacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnAddEvento)
                 .addGap(63, 63, 63)
                 .addComponent(jDayChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -277,9 +278,9 @@ public class VisualizarInformacoesDoProcesso extends javax.swing.JFrame {
         controller.voltar();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEventoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAddEventoActionPerformed
 
     public JTextField getTxtAdvogado() {
         return txtAdvogado;
@@ -301,11 +302,21 @@ public class VisualizarInformacoesDoProcesso extends javax.swing.JFrame {
         return txtVara;
     }
 
+    public JButton getBtnAddEvento() {
+        return btnAddEvento;
+    }
+
+    public JButton getBtnAddMovimentacao() {
+        return btnAddMovimentacao;
+    }
+    
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddEvento;
+    private javax.swing.JButton btnAddMovimentacao;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDayChooser jDayChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

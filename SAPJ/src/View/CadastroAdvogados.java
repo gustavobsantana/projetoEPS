@@ -72,8 +72,10 @@ public class CadastroAdvogados extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         menuItemVisualizarNumProcessos = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menuItemImport = new javax.swing.JMenuItem();
         menuItemExport = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        menuItemConsultaProcessos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -342,13 +344,13 @@ public class CadastroAdvogados extends javax.swing.JFrame {
 
         jMenu2.setText("Backup");
 
-        jMenuItem1.setText("Import");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menuItemImport.setText("Import");
+        menuItemImport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menuItemImportActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        jMenu2.add(menuItemImport);
 
         menuItemExport.setText("Export");
         menuItemExport.addActionListener(new java.awt.event.ActionListener() {
@@ -359,6 +361,18 @@ public class CadastroAdvogados extends javax.swing.JFrame {
         jMenu2.add(menuItemExport);
 
         jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Consultar");
+
+        menuItemConsultaProcessos.setText("Processos");
+        menuItemConsultaProcessos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemConsultaProcessosActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuItemConsultaProcessos);
+
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -414,9 +428,13 @@ public class CadastroAdvogados extends javax.swing.JFrame {
         controle.exportar();
     }//GEN-LAST:event_menuItemExportActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void menuItemImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemImportActionPerformed
         controle.importar();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_menuItemImportActionPerformed
+
+    private void menuItemConsultaProcessosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemConsultaProcessosActionPerformed
+        controle.consultarProcessos();
+    }//GEN-LAST:event_menuItemConsultaProcessosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -500,8 +518,8 @@ public class CadastroAdvogados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -512,7 +530,9 @@ public class CadastroAdvogados extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> listAdvogados;
     private javax.swing.JList<String> listaAdvogadosDesativados;
+    private javax.swing.JMenuItem menuItemConsultaProcessos;
     private javax.swing.JMenuItem menuItemExport;
+    private javax.swing.JMenuItem menuItemImport;
     private javax.swing.JMenuItem menuItemVisualizarNumProcessos;
     private javax.swing.JTextField txtCPF;
     private javax.swing.JTextField txtEmail;

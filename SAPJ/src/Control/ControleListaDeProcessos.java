@@ -52,6 +52,33 @@ public class ControleListaDeProcessos {
 
     }
 
+    public void iniciaListaDeProcessosADM() {
+        this.view = new ListaDeProcessos(this);
+        this.view.getBtnAdicionar().setVisible(false);
+        this.view.getBtnFinalizar().setVisible(false);
+        this.tabelaProcessos = this.view.getTableProcessos();
+        DefaultTableModel model = (DefaultTableModel) tabelaProcessos.getModel();
+        new BancoProcessos().listarProcessos().forEach(_processo -> {
+            model.addRow(new Object[]{
+                _processo.getNumero(),
+                _processo.getCliente(),
+                _processo.getVara(),
+                _processo.getAdvogado().getNome(),
+                _processo.getStatus()
+            });
+        });
+
+        tabelaProcessos.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                rowSelect = tabelaProcessos.rowAtPoint(e.getPoint());
+            }
+        });
+
+        view.setVisible(true);
+    }
+
     //tela de adicionar
     public void adicionar() {
         new ControleCadastroDeProcessos().iniciaCadastroDeProcesso(advogado);
@@ -63,7 +90,11 @@ public class ControleListaDeProcessos {
             int numero = (int) tabelaProcessos.getModel().getValueAt(rowSelect, 0);
             new BancoProcessos().listarProcessos().forEach(_processo -> {
                 if (numero == _processo.getNumero()) {
-                    new ControleVisualizarInformacoesDoProcesso().iniciarVisualizarMovimentacao(_processo);
+                    if (this.advogado == null) {
+                        new ControleVisualizarInformacoesDoProcesso().iniciarVisualizarMovimentacaoADM(_processo);
+                    } else {
+                        new ControleVisualizarInformacoesDoProcesso().iniciarVisualizarMovimentacao(_processo);
+                    }
                 }
             });
         } else {
