@@ -279,7 +279,7 @@ public class VisualizarInformacoesDoProcesso extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnAddEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEventoActionPerformed
-        // TODO add your handling code here:
+       controller.adicionarEvento();
     }//GEN-LAST:event_btnAddEventoActionPerformed
 
     public JTextField getTxtAdvogado() {

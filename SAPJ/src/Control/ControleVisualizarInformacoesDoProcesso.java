@@ -47,4 +47,8 @@ public class ControleVisualizarInformacoesDoProcesso {
         this.view.getTxtVara().setText(processo.getVara());
         this.view.getTxtCliente().setText(processo.getCliente().getNome());
     }
+    
+    public void adicionarEvento(){
+        new ControleCadastroDeEvento().iniciarCadastroDeEvento();
+    }
 }
