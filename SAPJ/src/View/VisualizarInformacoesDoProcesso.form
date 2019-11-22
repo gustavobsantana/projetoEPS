@@ -362,6 +362,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Adicionar Movimenta&#xe7;&#xe3;o"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddMovimentacaoActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

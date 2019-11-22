@@ -8,6 +8,7 @@ package Control;
 import Model.Processo;
 import View.ListaDeProcessos;
 import View.VisualizarInformacoesDoProcesso;
+import java.util.ArrayList;
 
 /**
  *
@@ -47,8 +48,30 @@ public class ControleVisualizarInformacoesDoProcesso {
         this.view.getTxtVara().setText(processo.getVara());
         this.view.getTxtCliente().setText(processo.getCliente().getNome());
     }
-    
-    public void adicionarEvento(){
-        new ControleCadastroDeEvento().iniciarCadastroDeEvento();
+
+    public void adicionarEvento() {
+        new ControleCadastroDeEvento().iniciarCadastroDeEvento(this.processo, this);
+    }
+
+    public void teste() {
+        new BancoEventos().listarEventos().forEach(evento -> {
+            System.out.println(evento.getDescricao());
+        });
+    }
+
+    public void atualizar() {
+        ArrayList<Processo> processos = new BancoProcessos().listarProcessos();
+        processos.forEach(_processo -> {
+            if (_processo.getNumero() == this.processo.getNumero()) {
+                this.processo = _processo;
+            }
+        });
+        this.prencherCampos();
+        this.processo.getEventos().forEach(evento -> {
+            System.out.println(evento.getDescricao());
+            System.out.println(evento.getData());
+            System.out.println(evento.getHora());
+            System.out.println("--------------------");
+        });
     }
 }

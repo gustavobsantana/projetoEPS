@@ -14,24 +14,24 @@ import java.util.Date;
  */
 public class Evento implements Serializable {
     
-    private Date data;
+    private String data;
     private String descricao;
-    private boolean ehPrazo;
+    private String hora;
 
-    public boolean isEhPrazo() {
-        return ehPrazo;
+    public String getHora() {
+        return hora;
     }
 
-    public void setEhPrazo(boolean ehPrazo) {
-        this.ehPrazo = ehPrazo;
+    public void setHora(String hora) {
+        this.hora = hora;
     }
     
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
@@ -42,7 +42,5 @@ public class Evento implements Serializable {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
-    
-    
+     
 }

@@ -139,6 +139,11 @@ public class VisualizarInformacoesDoProcesso extends javax.swing.JFrame {
         });
 
         btnAddMovimentacao.setText("Adicionar Movimentação");
+        btnAddMovimentacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddMovimentacaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -281,6 +286,10 @@ public class VisualizarInformacoesDoProcesso extends javax.swing.JFrame {
     private void btnAddEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEventoActionPerformed
        controller.adicionarEvento();
     }//GEN-LAST:event_btnAddEventoActionPerformed
+
+    private void btnAddMovimentacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMovimentacaoActionPerformed
+        controller.teste();
+    }//GEN-LAST:event_btnAddMovimentacaoActionPerformed
 
     public JTextField getTxtAdvogado() {
         return txtAdvogado;
