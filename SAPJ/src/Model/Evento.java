@@ -6,6 +6,7 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Date;
  */
 public class Evento implements Serializable {
     
-    private String data;
+    private Calendar data;
     private String descricao;
     private String hora;
 
@@ -27,11 +28,11 @@ public class Evento implements Serializable {
     }
     
 
-    public String getData() {
+    public Calendar getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Calendar data) {
         this.data = data;
     }
 

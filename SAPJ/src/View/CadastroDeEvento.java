@@ -10,6 +10,7 @@ import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFormattedTextField;
+import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
 /**
@@ -45,8 +46,8 @@ public class CadastroDeEvento extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtDescricao = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtHora = new javax.swing.JTextField();
         txtData = new javax.swing.JFormattedTextField();
+        txtHora = new javax.swing.JFormattedTextField();
         btnAdicionar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
@@ -65,6 +66,10 @@ public class CadastroDeEvento extends javax.swing.JFrame {
 
         jLabel5.setText("Hora:");
 
+        txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+
+        txtHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("HH:mm"))));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -82,15 +87,15 @@ public class CadastroDeEvento extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(83, Short.MAX_VALUE))
+                                .addComponent(txtHora))
+                            .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,8 +112,8 @@ public class CadastroDeEvento extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
-                    .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
@@ -168,6 +173,23 @@ public class CadastroDeEvento extends javax.swing.JFrame {
      * @param args the command line arguments
      */
 
+    public JFormattedTextField getTxtData() {
+        return txtData;
+    }
+
+    public JTextField getTxtDescricao() {
+        return txtDescricao;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public JFormattedTextField getTxtHora() {
+        return txtHora;
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnCancelar;
@@ -179,6 +201,6 @@ public class CadastroDeEvento extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JFormattedTextField txtData;
     private javax.swing.JTextField txtDescricao;
-    private javax.swing.JTextField txtHora;
+    private javax.swing.JFormattedTextField txtHora;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,6 +8,7 @@ package Control;
 import Model.Processo;
 import View.ListaDeProcessos;
 import View.VisualizarInformacoesDoProcesso;
+import java.text.DateFormat;
 import java.util.ArrayList;
 
 /**
@@ -67,11 +68,5 @@ public class ControleVisualizarInformacoesDoProcesso {
             }
         });
         this.prencherCampos();
-        this.processo.getEventos().forEach(evento -> {
-            System.out.println(evento.getDescricao());
-            System.out.println(evento.getData());
-            System.out.println(evento.getHora());
-            System.out.println("--------------------");
-        });
     }
 }
