@@ -26,12 +26,12 @@ public class ControleHome {
 
     //inicia a view
     public void iniciarHome(Advogado advogado) {
-        
-        this.view = new Home(this);
-        this.advogadoLogado = advogado;
-        this.view.setVisible(true);
-        buscarEventosDoAdvogado();
-        
+        if(advogado!=null){
+            this.view = new Home(this);
+            this.advogadoLogado = advogado;
+            this.view.setVisible(true);
+            buscarEventosDoAdvogado();
+        }
     }
     
     public void buscarEventosDoAdvogado() {
@@ -57,7 +57,7 @@ public class ControleHome {
         ArrayList<Processo> processos = new BancoProcessos().listarProcessos();
         ArrayList<Processo> processosDoAdvogadoLogado = new ArrayList<>();
         
-        for (Processo _processo : processos) {
+        for (Processo _processo : processos) {  
             if (_processo.getAdvogado().getNumeroOAB() == advogadoLogado.getNumeroOAB()) {
                 processosDoAdvogadoLogado.add(_processo);
             }
