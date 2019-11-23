@@ -21,7 +21,7 @@ public class Processo implements Serializable{
     private Advogado advogado;
     private String descricao; //-----
     private TipoProcesso tipo;
-    private ArrayList<Evento> eventos = new ArrayList<>(); //----
+    private ArrayList<Evento> eventos = new ArrayList<>();
     private boolean clienteEhReu; 
     private String nomeDaParte; //-----
     private String vara;
