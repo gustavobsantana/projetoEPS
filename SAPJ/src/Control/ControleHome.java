@@ -57,11 +57,12 @@ public class ControleHome {
         ArrayList<Processo> processos = new BancoProcessos().listarProcessos();
         ArrayList<Processo> processosDoAdvogadoLogado = new ArrayList<>();
         
-        processos.forEach(_processo -> {
+        for (Processo _processo : processos) {
             if (_processo.getAdvogado().getNumeroOAB() == advogadoLogado.getNumeroOAB()) {
                 processosDoAdvogadoLogado.add(_processo);
             }
-        });
+        } 
+        
         return processosDoAdvogadoLogado;
     }
     
