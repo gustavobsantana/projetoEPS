@@ -23,8 +23,11 @@ import javax.swing.JOptionPane;
  */
 public class ControleBackUp {
 
-    private JFileChooser iniciarJFileChooser(CadastroAdvogados view, boolean selecionarMultiplosArquivos, int jFileChooser) {
+    private JFileChooser iniciarJFileChooser(CadastroAdvogados view, boolean selecionarMultiplosArquivos, int jFileChooser, String buttonText) {
         JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setMultiSelectionEnabled(selecionarMultiplosArquivos);
+        fileChooser.setApproveButtonText(buttonText);
+        fileChooser.setDialogTitle(buttonText);
         fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
         fileChooser.setFileSelectionMode(jFileChooser);
         int result = fileChooser.showOpenDialog(view);
@@ -45,7 +48,8 @@ public class ControleBackUp {
                 }
             }
         }
-        JFileChooser fileChooser = iniciarJFileChooser(view, false, JFileChooser.DIRECTORIES_ONLY);
+        JFileChooser fileChooser = iniciarJFileChooser(view, false, JFileChooser.DIRECTORIES_ONLY, "Salvar");
+        
         if (fileChooser != null) {
             File selectedFile = fileChooser.getSelectedFile();
             try {
@@ -63,7 +67,7 @@ public class ControleBackUp {
     }
 
     public void importar(CadastroAdvogados view) {
-        JFileChooser fileChooser = iniciarJFileChooser(view, true, JFileChooser.FILES_ONLY);
+        JFileChooser fileChooser = iniciarJFileChooser(view, true, JFileChooser.FILES_ONLY, "Abrir");
         if (fileChooser != null) {
             try {
                 File[] selectedFile = fileChooser.getSelectedFiles();
