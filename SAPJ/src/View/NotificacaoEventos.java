@@ -47,6 +47,11 @@ ControleNotificacaoEventos controle;
         jScrollPane1.setViewportView(list);
 
         btnFechar.setText("Fechar");
+        btnFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFecharActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -100,6 +105,10 @@ ControleNotificacaoEventos controle;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnFecharActionPerformed
 
     /**
      * @param args the command line arguments
