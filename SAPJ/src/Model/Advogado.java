@@ -16,6 +16,21 @@ public class Advogado extends Usuario {
     private String cpf;
     private int numeroOAB;
     private boolean desativado = false;
+    
+    public Advogado(){
+
+    }
+
+    public Advogado(String nome, String email, String cpf, int numeroOAB, String login, String senha,boolean desativado) {
+        super(login,senha);
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
+        this.numeroOAB = numeroOAB;
+        this.desativado = desativado;
+    }
+    
+    
 
     public String getNome() {
         return nome;

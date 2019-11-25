@@ -17,6 +17,16 @@ public abstract class Usuario implements Serializable {
     String login;
     String senha;
 
+    public Usuario() {
+    }
+
+    public Usuario(String login, String senha) {
+        this.login = login;
+        this.senha = senha;
+    }
+    
+    
+
     public String getLogin() {
         return login;
     }

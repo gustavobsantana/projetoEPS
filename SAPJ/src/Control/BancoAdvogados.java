@@ -27,15 +27,8 @@ public class BancoAdvogados {
         ArrayList<Object> listaObject = Empacotamento.lerArquivoBinario(NOMEARQUIVO);
         ArrayList<Advogado> listaAdvogados = new ArrayList<Advogado>();
 
-        for (Object lista : listaObject) {
-            Advogado advogado = new Advogado();
-            advogado.setNome(((Advogado)lista).getNome());
-            advogado.setCpf(((Advogado)lista).getCpf());
-            advogado.setEmail(((Advogado)lista).getEmail());
-            advogado.setNumeroOAB(((Advogado)lista).getNumeroOAB());
-            advogado.setLogin(((Advogado)lista).getLogin());
-            advogado.setSenha(((Advogado)lista).getSenha());
-            advogado.setDesativado(((Advogado)lista).isDesativado());
+        for (Object lista : listaObject) { 
+            Advogado advogado = new Advogado(((Advogado)lista).getNome(),((Advogado)lista).getEmail(),((Advogado)lista).getCpf(),((Advogado)lista).getNumeroOAB(),((Advogado)lista).getLogin(),((Advogado)lista).getSenha(),((Advogado)lista).isDesativado());
             listaAdvogados.add(advogado);
         }
 
