@@ -28,19 +28,7 @@ public class BancoProcessos {
         ArrayList<Processo> listaProcessos = new ArrayList<Processo>();
 
         for (Object lista : listaObject) {
-            Processo processo = new Processo();
-            processo.setNumero(((Processo)lista).getNumero());
-            processo.setCliente(((Processo)lista).getCliente());
-            processo.setAdvogado(((Processo)lista).getAdvogado());
-            processo.setDescricao(((Processo)lista).getDescricao());
-            processo.setTipo(((Processo)lista).getTipo());
-            processo.setEventos(((Processo)lista).getEventos());
-            processo.setCliente(((Processo)lista).getCliente());
-            processo.setNomeDaParte(((Processo)lista).getNomeDaParte());
-            processo.setVara(((Processo)lista).getVara());
-            processo.setMovimentacoes(((Processo)lista).getMovimentacoes());
-            processo.setStatus(((Processo)lista).getStatus());
-            processo.setComentarioEncerramento(((Processo)lista).getComentarioEncerramento());
+            Processo processo = new Processo(((Processo)lista).getNumero(),((Processo)lista).getCliente(),((Processo)lista).getAdvogado(),((Processo)lista).getDescricao(),((Processo)lista).getTipo(),((Processo)lista).getNomeDaParte(),((Processo)lista).getVara(),((Processo)lista).getMovimentacoes(),((Processo)lista).getComentarioEncerramento(),((Processo)lista).getEventos(),((Processo)lista).getStatus());
             listaProcessos.add(processo);
         }
 

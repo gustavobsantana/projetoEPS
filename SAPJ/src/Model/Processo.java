@@ -15,6 +15,25 @@ import java.util.ArrayList;
  * @author Gustavo Santana
  */
 public class Processo implements Serializable{
+
+    public Processo() {
+    }
+
+    public Processo(int numero, Cliente cliente, Advogado advogado, String descricao, TipoProcesso tipo, String nomeDaParte, String vara, ArrayList<Movimentacao> movimentacoes, String comentarioEncerramento, ArrayList<Evento> eventos, StatusProcesso status) {
+        this.numero = numero;
+        this.cliente = cliente;
+        this.advogado = advogado;
+        this.descricao = descricao;
+        this.tipo = tipo; 
+        this.nomeDaParte = nomeDaParte;
+        this.vara = vara;
+        this.movimentacoes = movimentacoes;
+        this.comentarioEncerramento = comentarioEncerramento;
+        this.eventos = eventos;
+        this.status = status;
+    }
+    
+    
     
     private int numero;
     private Cliente cliente;
