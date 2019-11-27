@@ -5,7 +5,6 @@
  */
 package Control;
 
-import Enums.StatusProcesso;
 import Model.Processo;
 import View.FinalizarProcesso;
 import java.util.ArrayList;
@@ -29,41 +28,43 @@ public class ControleFinalizarProcesso {
         view.setVisible(true);
     }
 
-    public void concluir(String informacao) {
+    public void finalizar(String informacao) {
         if (this.view.getButtonGroup().getSelection() != null) {
-            if (this.view.getRadioConcluso().isSelected() && informacao.length()>5 ) {
+            if (this.view.getRadioConcluso().isSelected() && informacao.length() > 5) {
                 ArrayList<Processo> processos = new BancoProcessos().listarProcessos();
                 processos.forEach(_processo -> {
                     if (processo.getNumero() == _processo.getNumero()) {
-                        _processo.setStatus(StatusProcesso.CONCLUSO);
+                        _processo.setConcluido(true);
+                        _processo.setCancelado(false);
                         _processo.setComentarioEncerramento(informacao);
                     }
                 });
                 new BancoProcessos().editarProcesso(processos);
                 this.view.dispose();
-            JOptionPane.showMessageDialog(null, "Status alterado com sucesso");
-            } else if (this.view.getRadioConcluso().isSelected() && informacao.length() < 5 ){
-            JOptionPane.showMessageDialog(null, "Advogado deve adicionar veredito");
-            }else {
+                JOptionPane.showMessageDialog(null, "Status alterado com sucesso");
+                System.out.println("CONCLUIDO");
+            } else if (this.view.getRadioConcluso().isSelected() && informacao.length() < 5) {
+                JOptionPane.showMessageDialog(null, "Advogado deve adicionar veredito");
+            } else if (this.view.getRadioCancelado().isSelected()) {
                 ArrayList<Processo> processos = new BancoProcessos().listarProcessos();
                 processos.forEach(_processo -> {
                     if (processo.getNumero() == _processo.getNumero()) {
-                        _processo.setStatus(StatusProcesso.CANCELADO);
+                        _processo.setCancelado(true);
+                        _processo.setConcluido(false);
                         _processo.setComentarioEncerramento(informacao);
                     }
                 });
                 new BancoProcessos().editarProcesso(processos);
                 this.view.dispose();
-            JOptionPane.showMessageDialog(null, "Status alterado com sucesso");
+                JOptionPane.showMessageDialog(null, "Status alterado com sucesso");
+                System.out.println("CANCELADO");
             }
-            
-            
         } else {
             JOptionPane.showMessageDialog(null, "Selecione CONCLUSO ou CANCELADO");
         }
     }
-    
-    public void voltar(){
+
+    public void voltar() {
         this.view.dispose();
     }
 }

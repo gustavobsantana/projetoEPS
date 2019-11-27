@@ -6,6 +6,7 @@
 package Control;
 
 import Model.Advogado;
+import Model.Processo;
 import View.ListaDeProcessos;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -35,8 +36,8 @@ public class ControleListaDeProcessos {
                 _processo.getNumero(),
                 _processo.getCliente(),
                 _processo.getVara(),
-                _processo.getAdvogado().getNome(),
-                _processo.getStatus()
+                _processo.getAdvogado().getNome(), 
+                statusDoProcesso(_processo)
             });
         });
 
@@ -64,7 +65,7 @@ public class ControleListaDeProcessos {
                 _processo.getCliente(),
                 _processo.getVara(),
                 _processo.getAdvogado().getNome(),
-                _processo.getStatus()
+                statusDoProcesso(_processo)
             });
         });
 
@@ -79,6 +80,13 @@ public class ControleListaDeProcessos {
         view.setVisible(true);
     }
 
+    
+     public String statusDoProcesso(Processo processo) {
+        if(processo.isConcluido()) return "Concluso";
+        if(processo.isCancelado()) return "Cancelado";
+        return processo.getVara().equals("") ? "Aguardando Vara" : "Aberto";
+    }
+    
     //tela de adicionar
     public void adicionar() {
         new ControleCadastroDeProcessos().iniciaCadastroDeProcesso(advogado);

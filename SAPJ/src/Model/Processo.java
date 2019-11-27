@@ -5,7 +5,6 @@
  */
 package Model;
 
-import Enums.StatusProcesso;
 import Enums.TipoProcesso;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,40 +13,58 @@ import java.util.ArrayList;
  *
  * @author Gustavo Santana
  */
-public class Processo implements Serializable{
+public class Processo implements Serializable {
 
     public Processo() {
     }
 
-    public Processo(int numero, Cliente cliente, Advogado advogado, String descricao, TipoProcesso tipo, String nomeDaParte, String vara, ArrayList<Movimentacao> movimentacoes, String comentarioEncerramento, ArrayList<Evento> eventos, StatusProcesso status) {
+    public Processo(int numero, Cliente cliente, Advogado advogado, String descricao, TipoProcesso tipo, String nomeDaParte, String vara, ArrayList<Movimentacao> movimentacoes, String comentarioEncerramento, ArrayList<Evento> eventos, boolean concluido, boolean cancelado) {
         this.numero = numero;
         this.cliente = cliente;
         this.advogado = advogado;
         this.descricao = descricao;
-        this.tipo = tipo; 
+        this.tipo = tipo;
         this.nomeDaParte = nomeDaParte;
         this.vara = vara;
         this.movimentacoes = movimentacoes;
         this.comentarioEncerramento = comentarioEncerramento;
         this.eventos = eventos;
-        this.status = status;
+        this.concluido = concluido;
+        this.cancelado = cancelado;
     }
-    
-    
-    
+
     private int numero;
     private Cliente cliente;
     private Advogado advogado;
     private String descricao; //-----
     private TipoProcesso tipo;
     private ArrayList<Evento> eventos = new ArrayList<>();
-    private boolean clienteEhReu; 
+    private boolean clienteEhReu;
     private String nomeDaParte; //-----
     private String vara;
     private ArrayList<Movimentacao> movimentacoes; //----
-    private StatusProcesso status = StatusProcesso.ABERTO;
     private String comentarioEncerramento;
+    private boolean concluido;
+    private boolean cancelado;
 
+    public boolean isConcluido() {
+        return concluido;
+    }
+
+    public void setConcluido(boolean concluido) {
+        this.concluido = concluido;
+    }
+
+    public boolean isCancelado() {
+        return cancelado;
+    }
+
+    public void setCancelado(boolean cancelado) {
+        this.cancelado = cancelado;
+    }
+
+    
+    
     public int getNumero() {
         return numero;
     }
@@ -128,14 +145,6 @@ public class Processo implements Serializable{
         this.movimentacoes = movimentacoes;
     }
 
-    public StatusProcesso getStatus() {
-        return status;
-    }
-
-    public void setStatus(StatusProcesso status) {
-        this.status = status;
-    }
-
     public String getComentarioEncerramento() {
         return comentarioEncerramento;
     }
@@ -143,9 +152,5 @@ public class Processo implements Serializable{
     public void setComentarioEncerramento(String comentarioEncerramento) {
         this.comentarioEncerramento = comentarioEncerramento;
     }
-    
-    
-    
-    
-    
+
 }

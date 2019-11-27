@@ -181,7 +181,7 @@ public class FinalizarProcesso extends javax.swing.JFrame {
     }//GEN-LAST:event_radioConclusoActionPerformed
 
     private void btnConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConcluirActionPerformed
-        controller.concluir(txtInformacao.getText());
+        controller.finalizar(txtInformacao.getText());
     }//GEN-LAST:event_btnConcluirActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
