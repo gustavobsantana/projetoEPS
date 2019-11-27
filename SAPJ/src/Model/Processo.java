@@ -18,7 +18,7 @@ public class Processo implements Serializable {
     public Processo() {
     }
 
-    public Processo(int numero, Cliente cliente, Advogado advogado, String descricao, TipoProcesso tipo, String nomeDaParte, String vara, ArrayList<Movimentacao> movimentacoes, String comentarioEncerramento, ArrayList<Evento> eventos, boolean concluido, boolean cancelado) {
+    public Processo(int numero, Cliente cliente, Advogado advogado, String descricao, TipoProcesso tipo, String nomeDaParte, String vara, ArrayList<Movimentacao> movimentacoes, String comentarioEncerramento, ArrayList<Evento> eventos, boolean concluido, boolean cancelado, boolean clienteEhReu) {
         this.numero = numero;
         this.cliente = cliente;
         this.advogado = advogado;
@@ -29,6 +29,7 @@ public class Processo implements Serializable {
         this.movimentacoes = movimentacoes;
         this.comentarioEncerramento = comentarioEncerramento;
         this.eventos = eventos;
+        this.clienteEhReu = clienteEhReu;
         this.concluido = concluido;
         this.cancelado = cancelado;
     }
@@ -63,8 +64,6 @@ public class Processo implements Serializable {
         this.cancelado = cancelado;
     }
 
-    
-    
     public int getNumero() {
         return numero;
     }

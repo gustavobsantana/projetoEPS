@@ -8,6 +8,7 @@ package View;
 import Control.ControleCadastroDeProcessos;
 import Enums.TipoProcesso;
 import Model.Cliente;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
@@ -211,13 +212,13 @@ public class CadastroDeProcesso extends javax.swing.JFrame {
                 txtVara.getText(),
                 (Cliente) comboBoxCliente.getSelectedItem(),
                 comboBoxClienteEhReu.getSelectedIndex()
-                );
+        );
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-       txtCodigo.setText("");
-       txtVara.setText("");
-       controller.voltar();
+        txtCodigo.setText("");
+        txtVara.setText("");
+        controller.voltar();
 
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -303,6 +304,33 @@ public class CadastroDeProcesso extends javax.swing.JFrame {
         return comboBoxCliente;
     }
 
+    public JComboBox<String> getComboBoxClienteEhReu() {
+        return comboBoxClienteEhReu;
+    }
+
+    public JComboBox<TipoProcesso> getComboBoxTipo() {
+        return comboBoxTipo;
+    }
+
+    public JTextField getTxtAdvogado() {
+        return txtAdvogado;
+    }
+
+    public JTextField getTxtCodigo() {
+        return txtCodigo;
+    }
+
+    public JTextField getTxtVara() {
+        return txtVara;
+    }
+    
+    
+    
+    //////
+
+    public JButton getBtnAdicionar() {
+        return btnAdicionar;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;

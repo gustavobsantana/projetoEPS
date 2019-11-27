@@ -36,7 +36,7 @@ public class ControleListaDeProcessos {
                 _processo.getNumero(),
                 _processo.getCliente(),
                 _processo.getVara(),
-                _processo.getAdvogado().getNome(), 
+                _processo.getAdvogado().getNome(),
                 statusDoProcesso(_processo)
             });
         });
@@ -80,13 +80,16 @@ public class ControleListaDeProcessos {
         view.setVisible(true);
     }
 
-    
-     public String statusDoProcesso(Processo processo) {
-        if(processo.isConcluido()) return "Concluso";
-        if(processo.isCancelado()) return "Cancelado";
+    public String statusDoProcesso(Processo processo) {
+        if (processo.isConcluido()) {
+            return "Concluso";
+        }
+        if (processo.isCancelado()) {
+            return "Cancelado";
+        }
         return processo.getVara().equals("") ? "Aguardando Vara" : "Aberto";
     }
-    
+
     //tela de adicionar
     public void adicionar() {
         new ControleCadastroDeProcessos().iniciaCadastroDeProcesso(advogado);
@@ -115,14 +118,29 @@ public class ControleListaDeProcessos {
         if (rowSelect > -1) {
             int numero = (int) tabelaProcessos.getModel().getValueAt(rowSelect, 0);
             new BancoProcessos().listarProcessos().forEach(_processo -> {
-                if (numero == _processo.getNumero()) {
+                if (numero == _processo.getNumero() && !_processo.getVara().equals("")) {
                     new ControleFinalizarProcesso().iniciarFinalizarProcesso(_processo);
+                } else if(numero == _processo.getNumero() && _processo.getVara().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Todos os campos obrigatórios devem ser preenchidos");
                 }
             });
         } else {
             JOptionPane.showMessageDialog(null, "Selecione um processo");
         }
 
+    }
+
+    public void editar() {
+        if (rowSelect > -1) {
+            int numero = (int) tabelaProcessos.getModel().getValueAt(rowSelect, 0);
+            new BancoProcessos().listarProcessos().forEach(_processo -> {
+                if (numero == _processo.getNumero()) {
+                    new ControleCadastroDeProcessos().iniciaCadastroDeProcessoEditar(_processo);
+                }
+            });
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione um processo");
+        }
     }
 
     //tela de adicionar movimentação

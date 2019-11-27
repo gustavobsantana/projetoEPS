@@ -29,7 +29,7 @@ public class BancoProcessos {
         ArrayList<Processo> listaProcessos = new ArrayList<Processo>();
 
         for (Object lista : listaObject) {
-            Processo processo = new Processo(((Processo) lista).getNumero(), ((Processo) lista).getCliente(), ((Processo) lista).getAdvogado(), ((Processo) lista).getDescricao(), ((Processo) lista).getTipo(), ((Processo) lista).getNomeDaParte(), ((Processo) lista).getVara(), ((Processo) lista).getMovimentacoes(), ((Processo) lista).getComentarioEncerramento(), ((Processo) lista).getEventos(), ((Processo) lista).isConcluido(), ((Processo) lista).isCancelado());
+            Processo processo = new Processo(((Processo) lista).getNumero(), ((Processo) lista).getCliente(), ((Processo) lista).getAdvogado(), ((Processo) lista).getDescricao(), ((Processo) lista).getTipo(), ((Processo) lista).getNomeDaParte(), ((Processo) lista).getVara(), ((Processo) lista).getMovimentacoes(), ((Processo) lista).getComentarioEncerramento(), ((Processo) lista).getEventos(), ((Processo) lista).isConcluido(), ((Processo) lista).isCancelado(), ((Processo) lista).isClienteEhReu());
             listaProcessos.add(processo);
         }
 
