@@ -20,6 +20,20 @@ public class Cliente  implements Serializable {
     private String endereco;
     private boolean desabilitado = false;
 
+    public Cliente() {
+    }
+
+    public Cliente(String nome, String email, String cpfCnpj, int telefone, String endereco, boolean desabilitado) {
+        this.nome = nome;
+        this.email = email;
+        this.cpfCnpj = cpfCnpj;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.desabilitado = desabilitado;
+    }
+    
+    
+
     public String getNome() {
         return nome;
     }
