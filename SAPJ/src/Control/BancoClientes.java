@@ -27,14 +27,8 @@ public class BancoClientes {
         ArrayList<Object> listaObject = Empacotamento.lerArquivoBinario(NOMEARQUIVO);
         ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 
-        for (Object lista : listaObject) {
-            Cliente cliente = new Cliente();
-            cliente.setNome(((Cliente)lista).getNome());
-            cliente.setCpfCnpj(((Cliente)lista).getCpfCnpj());
-            cliente.setEmail(((Cliente)lista).getEmail());
-            cliente.setTelefone(((Cliente)lista).getTelefone());
-            cliente.setEndereco(((Cliente)lista).getEndereco());
-            cliente.setDesabilitado(((Cliente)lista).isDesabilitado());
+        for (Object lista : listaObject) { 
+            Cliente cliente = new Cliente(((Cliente)lista).getNome(),((Cliente)lista).getEmail(),((Cliente)lista).getCpfCnpj(),((Cliente)lista).getTelefone(),((Cliente)lista).getEndereco(),((Cliente)lista).isDesabilitado());
             listaClientes.add(cliente);
         }
 
