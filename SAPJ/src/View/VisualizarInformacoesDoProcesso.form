@@ -81,7 +81,7 @@
                       </Group>
                       <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="100" max="32767" attributes="0"/>
+                  <EmptySpace pref="110" max="32767" attributes="0"/>
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
@@ -301,7 +301,7 @@
                           <Component id="jScrollPane2" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jDayChooser1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="42" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -342,10 +342,10 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextPane" name="jTextPane1">
+                <Component class="javax.swing.JTextPane" name="txtProximasAtividades">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
-                    <Property name="text" type="java.lang.String" value="Pr&#xf3;ximas atividades:&#xa;&#xa;* 15/09/2019 - 11h00:&#xa;Autenticar processo no for&#xfa;m de Florian&#xf3;polis"/>
+                    <Property name="text" type="java.lang.String" value="Pr&#xf3;ximas atividades:"/>
                   </Properties>
                 </Component>
               </SubComponents>

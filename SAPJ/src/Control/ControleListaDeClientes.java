@@ -50,7 +50,7 @@ public class ControleListaDeClientes {
                 cliente.getEmail(),
                 cliente.getEndereco(),
                 cliente.getTelefone(),
-                cliente.isDesabilitado(),});
+                cliente.isDesabilitado() ? "Sim" : "Não",});
         });
 
     }

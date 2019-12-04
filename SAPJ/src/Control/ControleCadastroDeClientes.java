@@ -10,6 +10,7 @@ import View.CadastroDeCliente;
 import View.ListaDeCliente;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import org.jdesktop.swingx.prompt.PromptSupport;
 
 /**
  *
@@ -24,6 +25,12 @@ public class ControleCadastroDeClientes {
 
         this.view = new CadastroDeCliente(this);
 
+        PromptSupport.setPrompt("Nome do Cliente", this.view.getTxtNome());
+        PromptSupport.setPrompt("CPF ou CNPJ somente numeros", this.view.getTxtNome());
+        PromptSupport.setPrompt("Email do Cliente", this.view.getTxtNome());
+        PromptSupport.setPrompt("Endereço do Cliente", this.view.getTxtNome());
+        PromptSupport.setPrompt("Telefone do Cliente", this.view.getTxtNome());
+
         view.setVisible(true);
 
     }
@@ -35,13 +42,15 @@ public class ControleCadastroDeClientes {
 
         cadastrar = true;
         if (nome.equals("")) {
-            JOptionPane.showMessageDialog(null, "Nome obrigatório");
+            JOptionPane.showMessageDialog(null, "Campo obrigatório");
         } else if (cpfOuCNPJ.equals("")) {
-            JOptionPane.showMessageDialog(null, "CPF ou CNPJ obrigatório");
+            JOptionPane.showMessageDialog(null, "Campo obrigatório");
+        } else if (email.equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obrigatório");
         } else if (endereco.equals("")) {
-            JOptionPane.showMessageDialog(null, "Endereço obrigatório");
+            JOptionPane.showMessageDialog(null, "Campo obrigatório");
         } else if (telefone.equals("") || !telefone.matches("[0-9]+")) {
-            JOptionPane.showMessageDialog(null, "Telefone obrigatório e somente numeros");
+            JOptionPane.showMessageDialog(null, "Campo obrigatório");
         } else {
             ArrayList<Cliente> clientes = new BancoClientes().listarClientes();
             clientes.forEach(cliente -> {

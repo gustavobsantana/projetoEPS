@@ -41,7 +41,7 @@ public class ControleFinalizarProcesso {
                 });
                 new BancoProcessos().editarProcesso(processos);
                 this.view.dispose();
-                JOptionPane.showMessageDialog(null, "Status alterado com sucesso");
+                JOptionPane.showMessageDialog(null, "Processo finalizado com sucesso");
                 System.out.println("CONCLUIDO");
             } else if (this.view.getRadioConcluso().isSelected() && informacao.length() < 5) {
                 JOptionPane.showMessageDialog(null, "Advogado deve adicionar veredito");
@@ -56,7 +56,7 @@ public class ControleFinalizarProcesso {
                 });
                 new BancoProcessos().editarProcesso(processos);
                 this.view.dispose();
-                JOptionPane.showMessageDialog(null, "Status alterado com sucesso");
+                JOptionPane.showMessageDialog(null, "Processo cancelado com sucesso");
                 System.out.println("CANCELADO");
             }
         } else {

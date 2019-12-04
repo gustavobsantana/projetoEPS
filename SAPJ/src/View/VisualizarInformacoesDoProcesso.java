@@ -6,9 +6,11 @@
 package View;
 
 import Control.ControleVisualizarInformacoesDoProcesso;
+import com.toedter.calendar.JDayChooser;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 /**
  *
@@ -56,7 +58,7 @@ public class VisualizarInformacoesDoProcesso extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jDayChooser1 = new com.toedter.calendar.JDayChooser();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        txtProximasAtividades = new javax.swing.JTextPane();
         btnAddEvento = new javax.swing.JButton();
         btnAddMovimentacao = new javax.swing.JButton();
 
@@ -127,9 +129,9 @@ public class VisualizarInformacoesDoProcesso extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
         );
 
-        jTextPane1.setEditable(false);
-        jTextPane1.setText("Próximas atividades:\n\n* 15/09/2019 - 11h00:\nAutenticar processo no forúm de Florianópolis");
-        jScrollPane2.setViewportView(jTextPane1);
+        txtProximasAtividades.setEditable(false);
+        txtProximasAtividades.setText("Próximas atividades:");
+        jScrollPane2.setViewportView(txtProximasAtividades);
 
         btnAddEvento.setText("Adicionar Evento");
         btnAddEvento.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +157,7 @@ public class VisualizarInformacoesDoProcesso extends javax.swing.JFrame {
                     .addComponent(jScrollPane2)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jDayChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 42, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -207,7 +209,7 @@ public class VisualizarInformacoesDoProcesso extends javax.swing.JFrame {
                             .addComponent(txtAdvogado, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -319,6 +321,15 @@ public class VisualizarInformacoesDoProcesso extends javax.swing.JFrame {
         return btnAddMovimentacao;
     }
 
+    public JDayChooser getjDayChooser1() {
+        return jDayChooser1;
+    }
+
+    public JTextPane getTxtProximasAtividades() {
+        return txtProximasAtividades;
+    }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddEvento;
@@ -338,10 +349,10 @@ public class VisualizarInformacoesDoProcesso extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextField txtAdvogado;
     private javax.swing.JTextField txtCliente;
     private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextPane txtProximasAtividades;
     private javax.swing.JTextField txtTipo;
     private javax.swing.JTextField txtVara;
     // End of variables declaration//GEN-END:variables

@@ -5,6 +5,7 @@
  */
 package Control;
 
+import Model.Evento;
 import Model.Processo;
 import View.ListaDeProcessos;
 import View.VisualizarInformacoesDoProcesso;
@@ -48,6 +49,23 @@ public class ControleVisualizarInformacoesDoProcesso {
         this.view.getTxtTipo().setText(processo.getTipo() + "");
         this.view.getTxtVara().setText(processo.getVara());
         this.view.getTxtCliente().setText(processo.getCliente().getNome());
+        listarEventos();
+    }
+
+    public void listarEventos() {
+        ArrayList<Evento> eventos = this.processo.getEventos();
+        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+        for (Evento evento : eventos) {
+            this.view.getTxtProximasAtividades().setText(
+                    this.view.getTxtProximasAtividades().getText()
+                    + "\n"
+                    + dateFormat.format(evento.getData().getTime()) + " - " + evento.getHora() + ":"
+                    + "\n"
+                    + evento.getDescricao()
+                    + "\n"
+                    + " "
+            );
+        }
     }
 
     public void adicionarEvento() {

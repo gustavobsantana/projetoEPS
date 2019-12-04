@@ -13,6 +13,7 @@ import View.CadastroDeProcesso;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import org.jdesktop.swingx.prompt.PromptSupport;
 
 /**
  *
@@ -32,6 +33,9 @@ public class ControleCadastroDeProcessos {
         this.advogado = advogado;
         this.view.setTxtAdvogado(advogado.getNome());
 
+        PromptSupport.setPrompt("Código do processo", this.view.getTxtCodigo());
+        PromptSupport.setPrompt("Vara do processo", this.view.getTxtVara());
+
         this.comboTipo = this.view.getComboTipo();
         this.comboTipo.addItem(TipoProcesso.CIVIL);
         this.comboTipo.addItem(TipoProcesso.TRABALHISTA);
@@ -42,7 +46,9 @@ public class ControleCadastroDeProcessos {
 
         this.comboCliente = this.view.getComboCliente();
         new BancoClientes().listarClientes().forEach(cliente -> {
-            this.comboCliente.addItem(cliente);
+            if (!cliente.isDesabilitado()) {
+                this.comboCliente.addItem(cliente);
+            }
         });
 
         this.view.setVisible(true);
