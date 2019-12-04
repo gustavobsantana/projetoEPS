@@ -26,10 +26,10 @@ public class ControleCadastroDeClientes {
         this.view = new CadastroDeCliente(this);
 
         PromptSupport.setPrompt("Nome do Cliente", this.view.getTxtNome());
-        PromptSupport.setPrompt("CPF ou CNPJ somente numeros", this.view.getTxtNome());
-        PromptSupport.setPrompt("Email do Cliente", this.view.getTxtNome());
-        PromptSupport.setPrompt("Endereço do Cliente", this.view.getTxtNome());
-        PromptSupport.setPrompt("Telefone do Cliente", this.view.getTxtNome());
+        PromptSupport.setPrompt("CPF ou CNPJ somente numeros", this.view.getTxtCpfOuCNPJ());
+        PromptSupport.setPrompt("Email do Cliente", this.view.getTxtEmail());
+        PromptSupport.setPrompt("Endereço do Cliente", this.view.getTxtEndereco());
+        PromptSupport.setPrompt("Telefone do Cliente", this.view.getTxtTelefone());
 
         view.setVisible(true);
 

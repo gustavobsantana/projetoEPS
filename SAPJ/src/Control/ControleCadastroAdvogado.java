@@ -126,6 +126,7 @@ public class ControleCadastroAdvogado {
                                 view.getTxtCPF().setText(adv.getCpf());
                                 view.getTxtEmail().setText(adv.getEmail());
                                 view.getTxtLogin().setText(adv.getLogin());
+                                view.getTxtSenha().setText("");
 
                             }
                         });
@@ -151,6 +152,8 @@ public class ControleCadastroAdvogado {
                                 view.getTxtCPF().setText(adv.getCpf());
                                 view.getTxtEmail().setText(adv.getEmail());
                                 view.getTxtLogin().setText(adv.getLogin());
+                                view.getTxtSenha().setText("");
+
                             }
                         });
                     }
@@ -203,7 +206,7 @@ public class ControleCadastroAdvogado {
 
     }
 
-    public void exportar(){
+    public void exportar() {
         new ControleBackUp().exportar(this.view);
     }
 
@@ -211,8 +214,8 @@ public class ControleCadastroAdvogado {
         new ControleBackUp().importar(this.view);
         listarAdvogados();
     }
-    
-    public void consultarProcessos(){
+
+    public void consultarProcessos() {
         new ControleListaDeProcessos().iniciaListaDeProcessosADM();
     }
 }
