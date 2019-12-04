@@ -54,12 +54,6 @@ public class ControleVisualizarInformacoesDoProcesso {
         new ControleCadastroDeEvento().iniciarCadastroDeEvento(this.processo, this);
     }
 
-    public void teste() {
-        new BancoEventos().listarEventos().forEach(evento -> {
-            System.out.println(evento.getDescricao());
-        });
-    }
-
     public void atualizar() {
         ArrayList<Processo> processos = new BancoProcessos().listarProcessos();
         processos.forEach(_processo -> {
