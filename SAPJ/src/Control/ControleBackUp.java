@@ -49,12 +49,14 @@ public class ControleBackUp {
             }
         }
         JFileChooser fileChooser = iniciarJFileChooser(view, false, JFileChooser.DIRECTORIES_ONLY, "Salvar");
-        
         if (fileChooser != null) {
             File selectedFile = fileChooser.getSelectedFile();
             try {
                 for (File f : files) {
-                    File dest = new File(selectedFile.getAbsolutePath() + "\\" + f.getName());
+                    System.out.println(selectedFile.getAbsolutePath());
+                    System.out.println(f.getName());
+                    System.out.println(selectedFile.getAbsolutePath() + "/" + f.getName());
+                    File dest = new File(selectedFile.getAbsolutePath() + "/" + f.getName());
                     Files.copy(f.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
                 }
                 JOptionPane.showMessageDialog(null, "Backup exportado com sucesso: NUNCA ALTERE O NOME DOS ARQUIVOS!");
@@ -72,7 +74,7 @@ public class ControleBackUp {
             try {
                 File[] selectedFile = fileChooser.getSelectedFiles();
                 for (File f : selectedFile) {
-                    File dest = new File(".\\" + f.getName());
+                    File dest = new File("./" + f.getName());
                     Files.copy(f.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
 
                 }
